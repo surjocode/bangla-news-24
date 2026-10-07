@@ -7,7 +7,7 @@ interface News {
   description: string;
   category: string;
   imageUrl: string;
-  imageAlt: string;
+  imageAlt?: string;
   firstPublished: string;
 }
 
@@ -31,7 +31,7 @@ const NewsCard = ({ news }: NewsCardProps) => {
       <div className="relative aspect-video overflow-hidden">
         <Image
           src={news.imageUrl}
-          alt={news.imageAlt}
+          alt={news.imageAlt || news.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
